@@ -320,7 +320,6 @@ median_min_year <- CO$year[index_min]
 median_max_temp <- CO$median_annual[index_max]
 median_max_year <- CO$year[index_max]
 
-print(paste0("The maximum median annual temperature of ", median_max_temp, " occurred in ", median_max_year, " and the minimum median annual temperature of ", median_min_temp, " occurred in ", median_min_year, "."))
 
 
 ```
