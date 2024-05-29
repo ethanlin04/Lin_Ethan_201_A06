@@ -335,25 +335,6 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
-# Define sum recursive function as sum_digits
-sum_digits <- function(number) {
-  # Defines the base case, if the number is a single digit, only returns the number
-  if (number < 10) {
-    return(number)
-  } else {
-    # This is the recursive case which sums the last digit plus the result of the function repeating on the other digits; continually calls the function until the base case is reached
-    # Uses %/% to exclude and remove the last digit of "number"
-    excluding_last <- number %/% 10
-    # Uses % to return the remainder of the division of number by 10
-    last <- number %% 10
-    return(last + sum_digits(excluding_last))
-  }
-}
-
-# Test the function with the number 935068
-test <- sum_digits(935068)
-print(test)
-
 
 ```
 
