@@ -45,19 +45,13 @@ To get full credit for this Question you must:
   - have your GitHub up to date (ie: assignment is complete on GitHub).
   - insert a screenshot of RStudio that shows the project and Git. See instructions html for what needs to be visible in the screenshot.
 
-::: {.callout-tip icon=false}
-
 ## Github Repo Link
 
 [https://your-github-repo-url](https://your-github-repo-url)
 
-:::
-
-::: {.callout-tip icon=false}
+:::https://github.com/ethanlin04/Lin_Ethan_201_A06.git 
 
 ## Screenshot/image of RStudio
-
-![](filepath.png)
 
 :::
 
