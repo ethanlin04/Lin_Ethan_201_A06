@@ -174,10 +174,6 @@ Store the output as a vector and print the results.
 
 ```{r}
 
-# sapply iterates over each element in the "points_per_game" list and applies the round function to it
-rounded <- sapply(points_per_game, round, digits = 2)
-
-print(rounded)
 
 ```
 
