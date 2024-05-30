@@ -3219,17 +3219,16 @@ Screenshot/image of RStudio
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using indexing:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lebronjames_indexing <span class="ot">&lt;-</span> player_info[[<span class="dv">2</span>]][<span class="st">&quot;points&quot;</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lebronjames_indexing <span class="ot">&lt;-</span> player_info[[<span class="dv">2</span>]][[<span class="dv">4</span>]]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lebronjames_indexing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$points
-[1] 8162</code></pre>
+<pre><code>[1] 8162</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lebronjames_names <span class="ot">&lt;-</span> player_info[[<span class="st">&quot;LJ&quot;</span>]][<span class="st">&quot;points&quot;</span>]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lebronjames_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using names</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lebronjames_names <span class="ot">&lt;-</span> player_info<span class="sc">$</span>LJ<span class="sc">$</span>points</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lebronjames_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$points
-[1] 8162</code></pre>
+<pre><code>[1] 8162</code></pre>
 </div>
 </div>
 </section>
@@ -3246,7 +3245,7 @@ Screenshot/image of RStudio
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use [[]] to add height to each player&#39;s list while iterating through each plyaer </span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  player_info[[i]][[<span class="st">&quot;height&quot;</span>]] <span class="ot">&lt;-</span> player_height[i]</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print hte player_info list with the heights added</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print the player_info list with the heights added</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(player_info)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$MJ
@@ -3442,16 +3441,16 @@ $SO
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># apply the function to the mat_rand matrix and test with the rounded function</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat_rand, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), rounded)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat_rand, <span class="at">MARGIN =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, rounded)</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,]  100 1000  100  700    0
-[2,] 2000 2000  200  100  500
-[3,] 1000  500  200  100  100
-[4,]  200  200 2000  100 2000
-[5,]  600 2000 1000  200 1000
-[6,]  100  200  100 1000    0</code></pre>
+[1,] 1000  400 2000  500 2000
+[2,] 1000    0  100    0  900
+[3,]  400  100  700  600  700
+[4,] 1000 1000  100 1000 1000
+[5,]  200  100    0 2000 2000
+[6,]    0  700    0  100  400</code></pre>
 </div>
 </div>
 </section>
