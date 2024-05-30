@@ -104,10 +104,11 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 
 ```{r}
 # using indexing:
-lebronjames_indexing <- player_info[[2]]["points"]
+lebronjames_indexing <- player_info[[2]][[4]]
 print(lebronjames_indexing)
 
-lebronjames_names <- player_info[["LJ"]]["points"]
+# using names
+lebronjames_names <- player_info$LJ$points
 print(lebronjames_names)
 
 ```
@@ -128,7 +129,7 @@ for (i in names(player_info)) {
   # use [[]] to add height to each player's list while iterating through each plyaer 
   player_info[[i]][["height"]] <- player_height[i]
 }
-# print hte player_info list with the heights added
+# print the player_info list with the heights added
 print(player_info)
 
 ```
@@ -215,7 +216,7 @@ rounded <- function(i) {
 }
 
 # apply the function to the mat_rand matrix and test with the rounded function
-test <- apply(mat_rand, c(1, 2), rounded)
+test <- apply(mat_rand, MARGIN = 1:2, rounded)
 print(test)
 
 ```
@@ -335,6 +336,25 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
+# Define sum recursive function as sum_digits
+sum_digits <- function(number) {
+  # Defines the base case, if the number is a single digit, only returns the number
+  if (number < 10) {
+    return(number)
+  } else {
+    # This is the recursive case which sums the last digit plus the result of the function repeating on the other digits; continually calls the function until the base case is reached
+    # Uses %/% to exclude and remove the last digit of "number"
+    excluding_last <- number %/% 10
+    # Uses % to return the remainder of the division of number by 10
+    last <- number %% 10
+    return(last + sum_digits(excluding_last))
+  }
+}
+
+# Test the function with the number 935068
+test <- sum_digits(935068)
+print(test)
+
 
 ```
 
